@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/GetMyGPS/GetMyGPS.iml" filepath="$PROJECT_DIR$/GetMyGPS/GetMyGPS.iml" />
       <module fileurl="file://$PROJECT_DIR$/LocationSimulator.iml" filepath="$PROJECT_DIR$/LocationSimulator.iml" />
     </modules>
   </component>
