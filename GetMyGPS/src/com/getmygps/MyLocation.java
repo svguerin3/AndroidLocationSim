@@ -7,6 +7,7 @@ import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
 import android.os.Bundle;
+import android.util.Log;
 
 public class MyLocation {
     Timer timer1;
@@ -41,10 +42,12 @@ public class MyLocation {
 
     LocationListener locationListenerGps = new LocationListener() {
         public void onLocationChanged(Location location) {
-            timer1.cancel();
+            //timer1.cancel();
             locationResult.gotLocation(location);
-            lm.removeUpdates(this);
-            lm.removeUpdates(locationListenerNetwork);
+            //lm.removeUpdates(this);
+            //lm.removeUpdates(locationListenerNetwork);
+
+            Log.d("LocationListener", String.format("lat: %s | long: %s", location.getLatitude(), location.getLongitude()));
         }
         public void onProviderDisabled(String provider) {}
         public void onProviderEnabled(String provider) {}
@@ -53,10 +56,12 @@ public class MyLocation {
 
     LocationListener locationListenerNetwork = new LocationListener() {
         public void onLocationChanged(Location location) {
-            timer1.cancel();
+            //timer1.cancel();
             locationResult.gotLocation(location);
-            lm.removeUpdates(this);
-            lm.removeUpdates(locationListenerGps);
+            //lm.removeUpdates(this);
+            //lm.removeUpdates(locationListenerGps);
+
+            Log.d("LocationListener", String.format("lat: %s | long: %s", location.getLatitude(), location.getLongitude()));
         }
         public void onProviderDisabled(String provider) {}
         public void onProviderEnabled(String provider) {}
@@ -66,8 +71,8 @@ public class MyLocation {
     class GetLastLocation extends TimerTask {
         @Override
         public void run() {
-            lm.removeUpdates(locationListenerGps);
-            lm.removeUpdates(locationListenerNetwork);
+            //lm.removeUpdates(locationListenerGps);
+            //lm.removeUpdates(locationListenerNetwork);
 
             Location net_loc=null, gps_loc=null;
             if(gps_enabled)

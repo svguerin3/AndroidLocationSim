@@ -6,6 +6,9 @@ import android.os.Bundle;
 import android.widget.TextView;
 import com.getmygps.MyLocation.LocationResult;
 
+import java.util.Timer;
+import java.util.TimerTask;
+
 public class MainActivity extends Activity
 {
     /** Called when the activity is first created. */
